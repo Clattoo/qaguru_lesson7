@@ -1,6 +1,5 @@
 package tests;
 
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.RandomUtils;
@@ -11,23 +10,22 @@ public class DemoQaPageRegistrationTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     RandomUtils randomUtils = new RandomUtils();
 
-    Faker faker = new Faker();
 
-    String firstName = RandomUtils.getRandomFirstName(),
-            lastName = RandomUtils.getRandomLastName(),
-            userEmail = RandomUtils.getRandomEmail(),
-            userGender = RandomUtils.getRandomGender(),
-            userPhone = RandomUtils.getRandomUserPhone(),
-            userIncorrectPhone = RandomUtils.getRandomIncorrectUserPhone(),
-            userDayOfBirth = RandomUtils.getRandomDayOfBirth(),
-            userMonthOfBirth = RandomUtils.getRandomMonthOfBirth(),
-            userYearOfBirth = RandomUtils.getRandomYearOfBirth(),
-            userSubjects = RandomUtils.getRandomSubjects(),
-            userHobbies = RandomUtils.getRandomHobbies(),
-            userUploadPicture = RandomUtils.getRandomUploadPicture(),
-            userCurrentAddress = RandomUtils.getRandomCurrentAddress(),
-            userState = RandomUtils.getRandomUserState(),
-            userCity = RandomUtils.getRandomUserCity(userState);
+    String firstName = randomUtils.getRandomFirstName(),
+            lastName = randomUtils.getRandomLastName(),
+            userEmail = randomUtils.getRandomEmail(),
+            userGender = randomUtils.getRandomGender(),
+            userPhone = randomUtils.getRandomUserPhone(),
+            userIncorrectPhone = randomUtils.getRandomIncorrectUserPhone(),
+            userDayOfBirth = randomUtils.getRandomDayOfBirth(),
+            userMonthOfBirth = randomUtils.getRandomMonthOfBirth(),
+            userYearOfBirth = randomUtils.getRandomYearOfBirth(),
+            userSubjects = randomUtils.getRandomSubjects(),
+            userHobbies = randomUtils.getRandomHobbies(),
+            userUploadPicture = randomUtils.getRandomUploadPicture(),
+            userCurrentAddress = randomUtils.getRandomCurrentAddress(),
+            userState = randomUtils.getRandomUserState(),
+            userCity = randomUtils.getRandomUserCity(userState);
 
     @Test
     void successfulRegistrationTest() {
@@ -51,15 +49,15 @@ public class DemoQaPageRegistrationTests extends TestBase {
         // Проверка результатов теста
 
         registrationPage.checkResults("Student Name", firstName + " " + lastName)
-                        .checkResults("Student Email", userEmail)
-                        .checkResults("Gender", userGender)
-                        .checkResults("Mobile", userPhone)
-                        .checkResults("Date of Birth", userDayOfBirth + " " + userMonthOfBirth + "," + userYearOfBirth)
-                        .checkResults("Subjects", userSubjects)
-                        .checkResults("Hobbies", userHobbies)
-                        .checkResults("Picture", userUploadPicture)
-                        .checkResults("Address", userCurrentAddress)
-                        .checkResults("State and City", userState + " " + userCity);
+                .checkResults("Student Email", userEmail)
+                .checkResults("Gender", userGender)
+                .checkResults("Mobile", userPhone)
+                .checkResults("Date of Birth", userDayOfBirth + " " + userMonthOfBirth + "," + userYearOfBirth)
+                .checkResults("Subjects", userSubjects)
+                .checkResults("Hobbies", userHobbies)
+                .checkResults("Picture", userUploadPicture)
+                .checkResults("Address", userCurrentAddress)
+                .checkResults("State and City", userState + " " + userCity);
     }
 
     @Test
